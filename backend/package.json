@@ -28,11 +28,21 @@
 
     "@prisma/client": "^4.16.2",
 
+    "bcrypt": "^5.1.0",
+
     "body-parser": "^1.20.2",
+
+    "dotenv": "^16.3.1",
 
     "express": "^4.18.2",
 
-    "prisma": "^4.16.2"
+    "jsonwebtoken": "^9.0.1",
+
+    "prisma": "^4.16.2",
+
+    "yup": "^1.2.0",
+
+    "yup-password": "^0.2.2"
 
   },
 
