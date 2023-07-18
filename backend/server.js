@@ -15,7 +15,5 @@ res.send("app is working")
 const userRoute = require('./routes/users')
 app.use('/api/user',userRoute)
 
-
-
 const port = 5002
 app.listen(port,console.log(`Listening on port ${port}...`));
