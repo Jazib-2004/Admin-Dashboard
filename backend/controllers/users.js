@@ -37,6 +37,7 @@ module.exports.register = async (req, res) => {
   let data = req.body;
   // Validate request body
   let validationSchema = yup.object().shape({
+    name:yup.string().trim().required(),
     email: yup.string().trim().email().max(50).required(),
     password: yup.string().trim().minUppercase(1, 'Password must have at least 1 Uppercase letter').minLowercase(1, 'Password must have at least 1 Lowercase letter').minNumbers(3, 'Password must have at least 3 Numbers').minSymbols(1, 'Password must have at least 1 Special Character').required(),
   });
@@ -51,6 +52,7 @@ module.exports.register = async (req, res) => {
   // Trim string values
   data.email = data.email.trim().toLowerCase();
   data.password = data.password.trim();
+
 
   try {
     // Check email
@@ -68,6 +70,7 @@ module.exports.register = async (req, res) => {
     // Create user
     const user = await prisma.user.create({
       data: {
+        name:data.name,
         email: data.email,
         password: hashedPassword
       },
