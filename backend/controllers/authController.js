@@ -37,6 +37,7 @@ module.exports.register = async (req, res) => {
   let data = req.body;
   // Validate request body
   let validationSchema = yup.object().shape({
+    name: yup.string().required(),
     email: yup.string().trim().email().max(50).required(),
     password: yup.string().trim().minUppercase(1, 'Password must have at least 1 Uppercase letter').minLowercase(1, 'Password must have at least 1 Lowercase letter').minNumbers(3, 'Password must have at least 3 Numbers').minSymbols(1, 'Password must have at least 1 Special Character').required(),
   });
