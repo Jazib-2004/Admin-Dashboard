@@ -7,6 +7,19 @@ require('dotenv').config();
 
 
 const prisma = new PrismaClient();
+// get all users data
+module.exports.getUsers = async (req, res) => {
+  try{
+    const users = await prisma.user.findMany();
+    res.json({
+      users: users,
+    });
+  }
+catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+  
+};
 
 //1) testing auth 
 module.exports.auth = async (req, res) => {
