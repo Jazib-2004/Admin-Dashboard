@@ -21,7 +21,5 @@ app.use('/api/auth',authRoute)
 app.use('/api/user',userRoute)
 app.use('/api/event',singleEventRoute)
 
-
-
 const port = 5002
 app.listen(port,console.log(`Listening on port ${port}...`));
