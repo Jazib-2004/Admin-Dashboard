@@ -1,14 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./index.css";
+import ContextProvider from "./contexts/ContextProvider";
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+localStorage.setItem('api',"https://circle-web-api.onrender.com/");
 root.render(
-  <React.StrictMode>
+  <ContextProvider>
     <App />
-  </React.StrictMode>
+  </ContextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

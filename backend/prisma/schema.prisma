@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             Int     @id @default(autoincrement())
+  name           String  @default("")
+  email          String  @unique
+  password       String
+  attendedEvents Event[] @relation("AttendeeEvent")
+}
+
+model Event {
+  id            Int       @id @default(autoincrement())
+  name          String
+  image         String?
+  date_time     DateTime
+  location      String
+  category      String
+  type          EventType
+  description   String
+  is_paid       Boolean
+  booking_price Float?
+  host_id       Int
+  attendees     User[]    @relation("AttendeeEvent")
+}
+
+enum EventType {
+  Online
+  Onsite
+  Hybrid
+
+}
