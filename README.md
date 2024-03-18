@@ -1,2 +1,1 @@
-# Circle-Web
-Event Booking app
+# Admin Panel for Analytics
